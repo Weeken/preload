@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>preload</title>
+	<link rel="stylesheet" href="index.css">
+	
+</head>
+<body>
+	<div id="loading">
+		<div class="spinner">
+		    <div class="dot1"></div>
+		    <div class="dot2"></div>
+		</div>
+		<div class="percent" id="percent">0%</div>
+	</div>
+	<div class="pic" id="box"></div>
+	<script>
+	(function(){
+
+		
+
+		function getUrl(){
+			let images = [];
+
+			for(let i = 0; i < 20; i++){
+				let url = "https://github.com/Weeken/Weeken_blog/blob/gh-pages/img/card/card_"+ i +".jpg?raw=true";
+				images.push(url);
+			}
+			return images;
+		}
+
+
+
+		function loadImage() {
+
+			let imgs = getUrl();
+			let num = 0;
+			let percent = '';
+			let text = document.getElementById('percent');
+			let loading = document.getElementById('loading');
+			let box = document.getElementById('box');
+
+			box.style.display = 'none';
+
+			for(let i in imgs){
+				
+				let img = new Image();
+				img.src = imgs[i];
+
+				img.onload = function(){
+		        	img.onload = null;
+		        	num ++;
+		        	percent = ((num/imgs.length*100)>>0)+'%';
+		        	text.innerText = percent;
+		        	box.appendChild(img);
+		        	if(num == imgs.length){
+		        		loading.style.display = 'none';
+		        		box.style.display = 'block';
+		        	}
+		    	}
+		    	
+			}
+		}
+		
+		loadImage();
+	})();
+	</script>
+</body>
+</html>
