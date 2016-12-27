@@ -1,0 +1,25 @@
+.box{
+  width: 600px;
+  height: 600px;
+  margin: 100px auto;
+  /*background: #2b2828;*/
+  position: relative;
+}
+
+#round{
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: all .6s ease-in;
+}
+
+.percent{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -75px 0 0 -75px;
+  font: bold 50px/150px "time new roman";
+  color: #2e707d;
+  text-align: center;
+}
