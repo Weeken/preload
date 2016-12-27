@@ -11,7 +11,7 @@
   let round = document.getElementById('round');
   let percentage = document.getElementById('percent');
 
-  imgBox.style.display = 'none';
+  imgBox.style.opacity = 0;
 
   const circumference = Math.PI * 2 * 150;
   round.style.strokeDasharray = circumference;
@@ -37,9 +37,10 @@
       // console.log(percent);
       if(num === arr.length){
         setTimeout(()=>{
+          imgBox.style.opacity = 0;
           box.style.display = 'none';
-          imgBox.style.display = 'block';
-        },1000);
+          imgBox.style.opacity = 1;
+        },1500);
       }
     };
   }
